@@ -1,4 +1,4 @@
-import { configureChains, createConfig, createStorage, mainnet } from 'wagmi'
+import { configureChains, createConfig, mainnet } from 'wagmi'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
@@ -39,6 +39,5 @@ export const config = createConfig({
     }),
   ],
   publicClient,
-  storage: createStorage({ storage: window.localStorage }),
   webSocketPublicClient,
 })

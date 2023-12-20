@@ -52,7 +52,7 @@ const StepperSection = () => {
         </CardBody>
       </Card>
       <div className="flex w-full items-center justify-between">
-        <Button variant="link" onClick={disconnect}>
+        <Button variant="link" onClick={disconnect as any}>
           Disconnect
         </Button>
         <Button
