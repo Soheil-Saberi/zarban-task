@@ -1,44 +1,36 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import dynamic from 'next/dynamic'
+import { useAccount, useConnect } from 'wagmi'
 
-import { Card, CardBody, CardHeader } from "@/components/card";
+import Loading from '@/components/loading'
 
-import StepOne from "./_component/step-one";
-import StepTwo from "./_component/step-two";
-
-interface StepType {
-  label: string;
-  description: string;
-}
-
-const StepItem: StepType[] = [
-  {
-    label: "Token Minting",
-    description:
-      "Mint tokens for your wallet address with specified amounts through a user-friendly form.",
-  },
-  {
-    label: "Token Transfer",
-    description:
-      "Transfer minted tokens securely to any Ethereum address using a simple form interface.",
-  },
-];
+const ConnectWalletSection = dynamic(
+  () => import('./_component/connect-wallet-section'),
+  { loading: () => <Loading /> },
+)
+const StepperSection = dynamic(() => import('./_component/stepper-section'), {
+  loading: () => <Loading />,
+})
 
 export default function Home() {
-  const [step, setStep] = useState<0 | 1>(0);
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect()
+  const { isConnected } = useAccount()
 
   return (
-    <main className="w-full min-h-screen flex items-center justify-center">
-      <Card className="max-w-[500px]">
-        <CardHeader className="flex-col gap-2">
-          <h2 className="text-xl font-bold">{StepItem[step].label}</h2>
-          <p className="text-sm">{StepItem[step].description}</p>
-        </CardHeader>
-        <CardBody className="flex flex-col gap-8">
-          {step === 0 ? <StepOne setStep={setStep} /> : <StepTwo />}
-        </CardBody>
-      </Card>
+    <main className="flex min-h-screen w-full flex-col items-center justify-center gap-2">
+      {isConnected ? (
+        <StepperSection />
+      ) : (
+        <ConnectWalletSection
+          connect={connect}
+          connectors={connectors}
+          error={error}
+          isLoading={isLoading}
+          pendingConnector={pendingConnector}
+        />
+      )}
     </main>
-  );
+  )
 }

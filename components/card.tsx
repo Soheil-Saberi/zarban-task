@@ -1,44 +1,44 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, HTMLAttributes } from 'react'
 
-import { classNames } from "@/lib/utils";
+import { classNames } from '@/lib/utils'
 
 const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div
+    <section
       ref={ref}
       className={classNames(
-        "bg-card rounded border border-gray-200",
+        'bg-card rounded border border-gray-200',
         className,
       )}
       {...props}
     />
   ),
-);
-Card.displayName = "Card";
+)
+Card.displayName = 'Card'
 
 const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
       className={classNames(
-        "flex items-center justify-between rounded-t border-b border-gray-200 bg-[#fafafa] p-4 text-center",
+        'flex items-center justify-between rounded-t border-b border-gray-200 bg-[#fafafa] p-4 text-center',
         className,
       )}
       {...props}
     />
   ),
-);
-CardHeader.displayName = "CardHeader";
+)
+CardHeader.displayName = 'CardHeader'
 
 const CardBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={classNames("px-4 py-6 lg:px-6 lg:py-7", className)}
+      className={classNames('px-4 py-6 lg:px-6 lg:py-7', className)}
       {...props}
     />
   ),
-);
-CardBody.displayName = "CardBody";
+)
+CardBody.displayName = 'CardBody'
 
-export { Card, CardBody, CardHeader };
+export { Card, CardBody, CardHeader }
