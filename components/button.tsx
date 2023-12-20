@@ -10,10 +10,10 @@ const buttonVariants = cva(
       variant: {
         primary:
           'bg-slate-700 focus:ring-slate-700 focus-visible:ring-slate-700 text-slate-50',
-        link: 'text-slate-700 outline-0 hover:underline font-medium',
+        link: 'text-slate-700 outline-0 hover:underline font-medium ',
       },
       size: {
-        default: 'py-[6px] px-3 rounded-md text-sm',
+        default: 'py-[6px] px-3 rounded-md text-xs sm:text-sm',
         sm: 'py-2 px-4 rounded-md text-xs',
         lg: 'py-2 px-8 rounded-md text-lg',
       },

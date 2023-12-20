@@ -19,7 +19,7 @@ export function InputGroup({
 }: InputGroupProps) {
   return (
     <div className={classNames('flex flex-col gap-2', className)}>
-      <label htmlFor={id} className="text-sm text-gray-800">
+      <label htmlFor={id} className="text-xs text-gray-800 sm:text-sm">
         {label}
       </label>
       {children}

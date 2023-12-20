@@ -41,11 +41,13 @@ const StepperSection = () => {
   const { disconnect } = useDisconnect()
 
   return (
-    <section className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2 px-4 sm:px-0">
       <Card className="max-w-[500px]">
         <CardHeader className="flex-col gap-2">
-          <h2 className="text-xl font-bold">{StepItem[step].label}</h2>
-          <p className="text-sm">{StepItem[step].description}</p>
+          <h2 className="text-lg font-bold sm:text-xl">
+            {StepItem[step].label}
+          </h2>
+          <p className="text-xs sm:text-sm">{StepItem[step].description}</p>
         </CardHeader>
         <CardBody className="flex flex-col gap-8">
           {step === Steps.MINTING ? <StepOne /> : <StepTwo />}
