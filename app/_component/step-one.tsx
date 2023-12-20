@@ -23,9 +23,7 @@ const StepOne = () => {
     formState: { errors },
   } = useForm<StepOneInputs>()
 
-  const onSubmit: SubmitHandler<StepOneInputs> = (data) => {
-    if (data.tokenId && write) write()
-  }
+  const onSubmit: SubmitHandler<StepOneInputs> = () => write?.()
 
   const {
     config,
@@ -70,8 +68,6 @@ const StepOne = () => {
         error={errors.tokenId?.message}
       >
         <Input
-          type="number"
-          step="any"
           placeholder="Token Amount"
           {...register('tokenId', {
             required: 'Please enter token id',
@@ -82,7 +78,7 @@ const StepOne = () => {
           })}
         />
       </InputGroup>
-      <Button isLoading={isLoading} type="submit" className="w-fit self-center">
+      <Button isLoading={isLoading} type="submit">
         {isLoading ? 'Minting...' : 'Mint Token'}
       </Button>
     </form>

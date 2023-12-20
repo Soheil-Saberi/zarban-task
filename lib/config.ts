@@ -8,7 +8,10 @@ import { publicProvider } from 'wagmi/providers/public'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet],
-  [alchemyProvider({ apiKey: 'demo' }), publicProvider()],
+  [
+    alchemyProvider({ apiKey: 'VIbcltYwsHGy82y4o3JdunGRr7UL7ffg' }),
+    publicProvider(),
+  ],
 )
 
 export const config = createConfig({

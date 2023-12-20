@@ -1,12 +1,11 @@
 import { classNames } from '@/lib/utils'
 
-const loadingSizeOptions = ['xs', 'sm', 'lg', 'xl'] as const
+const loadingSizeOptions = ['xs', 'sm', 'lg'] as const
 type LoadingSize = (typeof loadingSizeOptions)[number]
 const loadingSize = {
   xs: 'h-4 w-4',
   sm: 'h-10 w-10',
   lg: 'h-16 w-16',
-  xl: 'h-32 w-32',
 }
 
 interface LoadingProps {
